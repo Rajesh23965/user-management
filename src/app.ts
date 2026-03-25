@@ -33,6 +33,9 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use(apiLimiter);
 
+app.get('/', (_req, res) => {
+    res.json({ message: "App is running" });
+});
 
 app.get('/health', (_req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
@@ -74,23 +77,6 @@ const startServer = async () => {
       Port: ${PORT}
       Environment: ${process.env.NODE_ENV}
       API URL: http://localhost:${PORT}
-      
-      Available Endpoints:
-      POST   /api/auth/register     - Register new user
-      POST   /api/auth/login        - Login user
-      POST   /api/auth/logout       - Logout user
-      
-      Admin Endpoints:
-      POST   /api/admin/assign-role - Assign role to user
-      GET    /api/admin/users       - Get all users
-      PUT    /api/admin/users/:id   - Update user
-      DELETE /api/admin/users/:id   - Delete user
-      
-      Role 1 Endpoint:
-      GET    /api/role1/users       - View users
-      
-      Role 2 Endpoint:
-      GET    /api/role2/message     - Get welcome message
       `);
         });
     } catch (error) {

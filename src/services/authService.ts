@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
 import { UserRole, UserCreateInput, JwtPayload } from '../types';
-import redis from '../config/redis';
 import { CONSTANTS } from '../utils/constants';
 import { Helpers } from '../utils/helpers';
 
@@ -75,13 +74,4 @@ export class AuthService {
         return { token, user: userResponse };
     }
 
-    async logout(token: string): Promise<void> {
-        const decoded = jwt.decode(token) as JwtPayload;
-        const exp = decoded?.exp;
-        const ttl = exp ? exp - Math.floor(Date.now() / 1000) : 3600;
-
-        if (ttl > 0) {
-            await redis.set(`blacklist:${token}`, 'true', ttl);
-        }
-    }
 }

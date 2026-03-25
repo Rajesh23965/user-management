@@ -3,7 +3,6 @@ import { AuthController } from '../controllers/authController';
 import { upload } from '../services/imageService';
 import { registerValidator, loginValidator } from '../validators/authValidator';
 import { validate } from '../middleware/validation';
-import { authenticate } from '../middleware/auth';
 
 const router = Router();
 const authController = new AuthController();
@@ -23,10 +22,5 @@ router.post(
     authController.login
 );
 
-router.post(
-    '/logout',
-    authenticate,
-    authController.logout
-);
 
 export default router;

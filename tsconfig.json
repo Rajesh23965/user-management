@@ -6,7 +6,7 @@
       "ES2022"
     ],
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -24,7 +24,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "types": [
-      "node"
+      "node",
+      "jest"
     ]
   },
   "include": [

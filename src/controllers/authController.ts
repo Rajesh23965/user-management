@@ -50,19 +50,5 @@ export class AuthController {
         }
     }
 
-    /* Logout User */
-    async logout(req: Request, res: Response, next: NextFunction): Promise<void> {
-        try {
-            const token = req.headers.authorization?.replace('Bearer ', '');
-            if (token) {
-                await authService.logout(token);
-            }
 
-            res.json(
-                Helpers.formatResponse(true, CONSTANTS.MESSAGES.LOGOUT_SUCCESS)
-            );
-        } catch (error) {
-            next(error);
-        }
-    }
 }

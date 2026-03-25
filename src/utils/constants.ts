@@ -34,7 +34,6 @@ export const CONSTANTS = {
     MESSAGES: {
         REGISTER_SUCCESS: 'User registered successfully. Waiting for admin approval.',
         LOGIN_SUCCESS: 'Login successful',
-        LOGOUT_SUCCESS: 'Logged out successfully',
         ROLE_ASSIGNED: 'Role assigned successfully',
         USER_UPDATED: 'User updated successfully',
         USER_DELETED: 'User deleted successfully',
